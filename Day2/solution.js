@@ -48,6 +48,32 @@ var map5 = function(arr, fn) {
     return result;
 };
 
+/** ----------- Solution 6 ----------- */
+
+var map6 = function(arr, fn) {
+    return Array.from(arr,(value,index)=>fn(value,index))
+};
+
+
+/** ----------- Solution 7 ----------- */
+
+var map7 = function(arr, fn,index=0) {
+    if(index===arr.length){
+        return []
+    }
+    return [fn(arr[index],index),...map7(arr,fn,index+1)]
+};
+
+/** ----------- Solution 8 ----------- */
+
+var map8 = function(arr, fn) {
+    return arr.flatMap((value,index)=>fn(arr[index],index))
+};
+
+
+
+
+
 /** Debugging */
 function fn(el,i){
     return el+i;
@@ -57,3 +83,6 @@ console.log(map2([1,2,3],fn));
 console.log(map3([1,2,3],fn));
 console.log(map4([1,2,3],fn));
 console.log(map5([1,2,3],fn));
+console.log(map6([1,2,3],fn));
+console.log(map7([1,2,3],fn));
+console.log(map8([1,2,3],fn));

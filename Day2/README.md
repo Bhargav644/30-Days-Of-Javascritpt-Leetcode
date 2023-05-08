@@ -142,3 +142,63 @@ Please solve it without the built-in Array.map method.
 <li>Space: O(n) </li>
 </ul>
 <hr>
+
+<b>Approach 5: Using 'Array.from()' method </b> 
+<br/>
+
+```
+
+    var map6 = function(arr, fn) {
+        return Array.from(arr,(value,index)=>fn(value,index))
+    };
+
+
+```
+
+<br/>
+<ul>
+<li>Time: O(n) </li>
+<li>Space: O(1) </li>
+</ul>
+<hr>
+
+<b>Approach 6: Using 'Recursion' </b> 
+<br/>
+
+```
+
+    var map7 = function(arr, fn,index=0) {
+        if(index===arr.length){
+            return []
+        }
+        return [fn(arr[index],index),...map7(arr,fn,index+1)]
+    };
+
+
+```
+
+<br/>
+<ul>
+<li>Time: O(n) </li>
+<li>Space: O(1) or O(n) Auxilary stack space </li>
+</ul>
+<hr>
+
+<b>Approach 6: Using 'Array.flatMap()' method </b> 
+<br/>
+
+```
+
+    var map8 = function(arr, fn) {
+        return arr.flatMap((value,index)=>fn(arr[index],index))
+    };
+
+
+```
+
+<br/>
+<ul>
+<li>Time: O(n) </li>
+<li>Space: O(1)  </li>
+</ul>
+<hr>
