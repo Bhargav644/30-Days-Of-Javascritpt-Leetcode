@@ -1,4 +1,4 @@
-##  Array Reduce Transformation
+##  Function Composition
 
 
 <b>[Easy]</b>
@@ -6,13 +6,13 @@
 
 <hr/>
 
-<h4><a href="https://leetcode.com/problems/array-reduce-transformation/description/?utm_campaign=PostD6&utm_medium=Post&utm_source=Post&gio_link_id=nPN45jD9">Problem</a>:Given an integer array nums, a reducer function fn, and an initial value init, return a reduced array.<br>
+<h4><a href="https://leetcode.com/problems/function-composition/description/">Problem</a>:Given an array of functions [f1, f2, f3, ..., fn], return a new function fn that is the function composition of the array of functions.<br>
 
-A reduced array is created by applying the following operation: val = fn(init, nums[0]), val = fn(val, nums[1]), val = fn(val, nums[2]), ... until every element in the array has been processed. The final value of val is returned.<br>
+The function composition of [f(x), g(x), h(x)] is fn(x) = f(g(h(x))).<br>
 
-If the length of the array is 0, it should return init.<br>
+The function composition of an empty list of functions is the identity function f(x) = x.<br>
 
-Please solve it without using the built-in Array.reduce method.<br>
+You may assume each function in the array accepts one integer as input and returns one integer as output.<br>
 
 
 <br/>
@@ -21,10 +21,8 @@ Please solve it without using the built-in Array.reduce method.<br>
 
 <br/>
 
-<b>Input:</b>nums = [1,2,3,4] <br>
-fn = function sum(accum, curr) { return accum + curr; }<br>
-init = 0<br>
-<b>Output/:</b> 10<br>
+<b>Input:</b>functions = [x => x + 1, x => x * x, x => 2 * x] ,x=4 <br>
+<b>Output/:</b> 65<br>
 
 <hr>
 <hr>
@@ -34,12 +32,13 @@ init = 0<br>
 
 ```
 
-    var reduce = function(nums, fn, init) {
-        let acc = init;
-        for (let i = 0; i < nums.length; i++) {
-        acc = fn(acc, nums[i]);
+    var compose = function(functions) {
+        return function(x) {
+            for(let i=functions.length-1;i>=0;--i){
+                x=functions[i](x)
+            }
+            return x;
         }
-        return acc;
     };
 
 
@@ -48,7 +47,7 @@ init = 0<br>
 <br/>
 <ul>
 <li>Time: O(n) </li>
-<li>Space: O(n) </li>
+<li>Space: O(1) </li>
 </ul>
 <hr>
 
@@ -57,12 +56,14 @@ init = 0<br>
 
 ```
 
-    var reduce = function(nums, fn, init) {
-        return nums.reduce((count,value,idx)=>{
-            count=fn(count,value);
-            return count;
-        },init);
-    };
+    var compose=function(functions){
+        return function(x){
+            return functions.reduceRight((acc,fn,i)=>{
+                acc=fn(acc)
+                return acc;
+            },x)
+        }
+    }
 
 
 ```
@@ -70,29 +71,5 @@ init = 0<br>
 <br/>
 <ul>
 <li>Time: O(n) </li>
-<li>Space: O(n) </li>
-</ul>
-
-<hr>
-
-<b>Approach 3:</b> 
-<br/>
-
-```
-
-    var reduce = function(nums, fn, init) {
-        let acc = init;
-        nums.forEach((element) => {
-        acc = fn(acc, element);
-        });
-        return acc;
-    };
-
-
-```
-
-<br/>
-<ul>
-<li>Time: O(n) </li>
-<li>Space: O(n) </li>
+<li>Space: O(1) </li>
 </ul>
