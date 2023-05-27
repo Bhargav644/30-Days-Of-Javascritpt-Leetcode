@@ -76,7 +76,7 @@ t = 50<Br>
     var timeLimit=function(fn,t){
         return async function(...args){
             return new Promise((resolve,reject)=>{
-                setTimeout(()=>{
+                                    r    setTimeout(()=>{
                     reject("Time Limit Exeeced")
                 },t);
 
