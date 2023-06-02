@@ -115,7 +115,7 @@ The colums in the matrix should be in lexographically ascending order. <br>
 <br/>
 <ul>
 <li>Time: O(number of keys) </li>
-<li>Space: O(1) </li>
+<li>Space: O(number of keys) </li>
 </ul>
 <hr>
 
