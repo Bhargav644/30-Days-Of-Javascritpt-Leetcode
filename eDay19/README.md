@@ -6,7 +6,7 @@
 
 <hr/>
 
-<h4><a href="https://leetcode.com/problems/json-deep-equal/description/?utm_campaign=PostD17&utm_medium=Post&utm_source=Post&gio_link_id=4PKqJ0z9">Problem</a>:Write a function that converts an array of objects arr into a matrix m.<br>
+<h4><a href="https://leetcode.com/problems/array-of-objects-to-matrix/?utm_campaign=PostD19&utm_medium=Post&utm_source=Post&gio_link_id=EoZk0Zy9">Problem</a>:Write a function that converts an array of objects arr into a matrix m.<br>
 
 The first row m should be the column names. If there is no nesting, the column names are the unique keys within the objects. If there is nesting, the column names are the respective paths in the object separated by ".". <br>
 
@@ -32,6 +32,8 @@ The colums in the matrix should be in lexographically ascending order. <br>
     ]
 
 ```
+<br>
+
 <b>Output: </b>
 
 ```
@@ -44,6 +46,8 @@ The colums in the matrix should be in lexographically ascending order. <br>
     ]
 
 ```
+
+<br>
 
 <b>Approach 1:</b> 
 <br/>
