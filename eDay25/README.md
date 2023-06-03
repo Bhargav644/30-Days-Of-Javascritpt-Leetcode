@@ -22,7 +22,7 @@ There are no constraints on the data types that can be passed to the function. F
 
 <b>Important Points to note here :</b> <br>
 
-1. Why we are not using x instanceff y direct here <b>Reason:</b> instanceff function only responds to only instances which are created using new keyword <br>
+1. Why we are not using x instanceof y direct here <b>Reason:</b> instanceof function only responds to only instances which are created using new keyword <br>
 
 Example:  <br>
 
