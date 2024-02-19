@@ -10,7 +10,7 @@ const promisePool=function(functions,n){
         let inProgress=0;
         let i=0;
         function callback(){
-            whille(i<functions.length && inProgress<n){
+            while(i<functions.length && inProgress<n){
                 functions[i++]().then(()=>{
                     inProgress--;
                     callback();
